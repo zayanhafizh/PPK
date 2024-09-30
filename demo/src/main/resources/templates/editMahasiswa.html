@@ -1,0 +1,36 @@
+<!-- editMahasiswa.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Mahasiswa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2 class="mt-4">Edit Data Mahasiswa</h2>
+    <form th:action="@{/update/{id}(id=${mahasiswa.id})}" th:object="${mahasiswa}" method="post">
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" id="nama" th:field="*{nama}" class="form-control" required>
+            <div th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="nim" class="form-label">NIM</label>
+            <input type="text" id="nim" th:field="*{nim}" class="form-control">
+            <div th:if="${#fields.hasErrors('nim')}" th:errors="*{nim}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="jurusan" class="form-label">Jurusan</label>
+            <input type="text" id="jurusan" th:field="*{jurusan}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="tanggalLahir">Tanggal Lahir</label>
+            <input type="date" id="tanggalLahir" th:field="*{tanggalLahir}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
