@@ -8,11 +8,13 @@
 </head>
 <body>
 <div class="container">
-    <h2 class="mt-4">Daftar Mahasiswa</h2>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" name="keyword">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i data-feather="search"></i></button>
-    </div>
+    <h2 class="mt-4"><a href="/mahasiswa" class="text-decoration-none">Daftar Mahasiswa</a></h2>
+    <form action="/search" method="get">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="Cari mahasiswa...">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i data-feather="search"></i></button>
+        </div>
+    </form>
     <table class="table table-bordered mt-3">
         <thead>
         <tr>

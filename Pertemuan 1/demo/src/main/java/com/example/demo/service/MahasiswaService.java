@@ -51,4 +51,8 @@ public class MahasiswaService {
         mahasiswaRepository.deleteById(id);
         return null;
     }
+
+    public List<Mahasiswa> searchMahasiswa(String keyword) {
+        return mahasiswaRepository.search(keyword);
+    }
 }

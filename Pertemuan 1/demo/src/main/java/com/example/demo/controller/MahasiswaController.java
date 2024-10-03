@@ -69,4 +69,10 @@ public class MahasiswaController {
         }
         return "redirect:/mahasiswa";
     }
+
+    @GetMapping("/search")
+    public String searchMahasiswa(@RequestParam String keyword, Model model) {
+        model.addAttribute("mahasiswaList", mahasiswaService.searchMahasiswa(keyword));
+        return "mahasiswa-list";
+    }
 }
