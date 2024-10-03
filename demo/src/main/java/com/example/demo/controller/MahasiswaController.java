@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -52,7 +50,7 @@ public class MahasiswaController {
         return "redirect:/mahasiswa"; // Redirect jika mahasiswa tidak ditemukan
     }
 
-    @PostMapping("/update/{id}")
+    @PostMapping("/edit/{id}")
     public String updateMahasiswa(@PathVariable Long id, @ModelAttribute @Valid Mahasiswa mahasiswa, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("mahasiswa", mahasiswa);

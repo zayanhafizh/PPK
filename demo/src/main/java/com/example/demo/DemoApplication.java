@@ -8,23 +8,23 @@ import org.springframework.ui.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.example.demo")
 @Controller
 public class DemoApplication {
 	private List<String> items = new ArrayList<>();
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	@GetMapping("/")
-	public String index(Model model) {
-		model.addAttribute("items", items);
-		return "index";
-	}
-	@PostMapping("/add")
-	public String addItem(@RequestParam String item) {
-		items.add(item);
-		return "redirect:/";
-	}
+//	@GetMapping("/")
+//	public String index(Model model) {
+//		model.addAttribute("items", items);
+//		return "index";
+//	}
+//	@PostMapping("/add")
+//	public String addItem(@RequestParam String item) {
+//		items.add(item);
+//		return "redirect:/";
+//	}
 //	@GetMapping("/edit/{index}")
 //	public String editItem(@PathVariable int index, Model model) {
 //		String item = items.get(index);
@@ -33,14 +33,14 @@ public class DemoApplication {
 //		return "edit";
 //	}
 
-	@PostMapping("/update/{index}")
-	public String updateItem(@PathVariable int index, @RequestParam String item) {
-		items.set(index, item);
-		return "redirect:/";
-	}
-	@GetMapping("/delete/{index}")
-	public String deleteItem(@PathVariable int index) {
-		items.remove(index);
-		return "redirect:/";
-	}
+//	@PostMapping("/update/{index}")
+//	public String updateItem(@PathVariable int index, @RequestParam String item) {
+//		items.set(index, item);
+//		return "redirect:/";
+//	}
+//	@GetMapping("/delete/{index}")
+//	public String deleteItem(@PathVariable int index) {
+//		items.remove(index);
+//		return "redirect:/";
+//	}
 }

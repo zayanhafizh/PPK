@@ -13,23 +13,23 @@
             <form th:action="@{/tambah}" th:object="${mahasiswa}" method="post">
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
-                    <input type="text" id="nama" th:field="*{nama}" class="form-control" required>
-                    <div th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}"></div>
+                    <input type="text" id="nama" th:field="*{nama}" class="form-control" th:classappend="${#fields.hasErrors('nama')} ? 'is-invalid' : ''" required>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}"></div>
                 </div>
                 <div class="mb-3">
                     <label for="nim" class="form-label">NIM</label>
-                    <input type="text" id="nim" th:field="*{nim}" class="form-control">
-                    <div th:if="${#fields.hasErrors('nim')}" th:errors="*{nim}"></div>
+                    <input type="text" id="nim" th:field="*{nim}" class="form-control" th:classappend="${#fields.hasErrors('nim')} ? 'is-invalid' : ''">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('nim')}" th:errors="*{nim}"></div>
                 </div>
                 <div class="mb-3">
                     <label for="jurusan" class="form-label">Jurusan</label>
-                    <input type="text" id="jurusan" th:field="*{jurusan}" class="form-control">
-                    <div th:if="${#fields.hasErrors('jurusan')}" th:errors="*{jurusan}"></div>
+                    <input type="text" id="jurusan" th:field="*{jurusan}" class="form-control" th:classappend="${#fields.hasErrors('jurusan')} ? 'is-invalid' : ''">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('jurusan')}" th:errors="*{jurusan}"></div>
                 </div>
                 <div class="mb-3">
                     <label for="tanggalLahir">Tanggal Lahir</label>
-                    <input type="date" id="tanggalLahir" th:field="*{tanggalLahir}" class="form-control" required>
-                    <div th:if="${#fields.hasErrors('tanggalLahir')}" th:errors="*{tanggalLahir}"></div>
+                    <input type="date" id="tanggalLahir" th:field="*{tanggalLahir}" class="form-control" th:classappend="${#fields.hasErrors('tanggalLahir')} ? 'is-invalid' : ''" required>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('tanggalLahir')}" th:errors="*{tanggalLahir}"></div>
                 </div>
                 <a th:href="@{/mahasiswa}" class="btn btn-primary"> Back to List</a>
                 <button type="submit" class="btn btn-primary">Submit</button>

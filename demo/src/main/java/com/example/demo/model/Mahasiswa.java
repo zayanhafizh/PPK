@@ -1,17 +1,11 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-
+//import com.example.demo.validation.UniqueNIM;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 @Entity
 public class Mahasiswa {
@@ -25,12 +19,14 @@ public class Mahasiswa {
 
     @NotBlank(message = "NIM tidak boleh kosong")
     @Size(min = 9, max = 9, message = "NIM harus 9 digit")
+//    @UniqueNIM
     private String nim;
 
     private String jurusan;
 
     @NotNull(message = "Tanggal lahir tidak boleh kosong")
-    @JsonFormat(pattern = "dd-MM-yyyy") // Format untuk JSON
+    @Past(message = "Tanggal lahir harus di masa lalu")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate tanggalLahir;
 
 
