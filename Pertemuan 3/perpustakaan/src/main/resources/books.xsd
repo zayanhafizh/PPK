@@ -12,7 +12,6 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
     <xs:element name="createBookResponse">
         <xs:complexType>
             <xs:sequence>
@@ -25,7 +24,6 @@
     <xs:element name="getBooksRequest">
         <xs:complexType/>
     </xs:element>
-
     <xs:element name="getBooksResponse">
         <xs:complexType>
             <xs:sequence>
