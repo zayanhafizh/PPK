@@ -4,6 +4,7 @@ import com.polstat.perpustakaan.dto.BookLoanDto;
 import com.polstat.perpustakaan.entity.Book;
 import com.polstat.perpustakaan.entity.BookLoan;
 import com.polstat.perpustakaan.entity.Member;
+import com.polstat.perpustakaan.exception.BookAlreadyLoanedException;
 import com.polstat.perpustakaan.mapper.BookLoanMapper;
 import com.polstat.perpustakaan.repository.BookLoanRepository;
 import com.polstat.perpustakaan.repository.BookRepository;
@@ -35,7 +36,7 @@ public class BookLoanServiceImpl implements BookLoanService {
         boolean isBookOnLoan = bookLoanRepository.existsByBookIdAndStatus(loanDto.getBookId(), "sedang dipinjam");
 
         if (isBookOnLoan) {
-            throw new RuntimeException("Buku ini sedang dipinjam oleh member lain.");
+            throw new BookAlreadyLoanedException("Buku ini sedang dipinjam oleh member lain.");
         }
 
         // Jika buku belum dipinjam, lanjutkan proses peminjaman
@@ -54,6 +55,7 @@ public class BookLoanServiceImpl implements BookLoanService {
         bookLoan = bookLoanRepository.save(bookLoan);
         return BookLoanMapper.mapToBookLoanDto(bookLoan);
     }
+
 
     @Override
     public BookLoanDto returnBook(Long loanId) {
