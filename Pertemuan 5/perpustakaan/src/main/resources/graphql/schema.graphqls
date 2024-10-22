@@ -1,0 +1,35 @@
+# Definisi untuk tipe Book
+type Book {
+    id: ID
+    title: String
+    author: String
+    description: String
+}
+
+# Definisi untuk tipe Member
+type MemberDto {
+    id: ID
+    memberID: String
+    name: String
+    address: String
+    phoneNumber: String
+}
+
+# Query untuk buku dan member
+type Query {
+    books: [Book]
+    bookById(id: ID): Book
+    members: [MemberDto]
+    memberById(id: ID): MemberDto
+}
+
+# Mutasi untuk buku dan member
+type Mutation {
+    createBook(title: String!, description: String, author: String!): Book!
+    updateBook(id: String!, title: String!, description: String, author: String!): Book!
+    deleteBook(id: String!): Book
+
+    createMember(memberID: String!, name: String!, address: String!, phoneNumber: String!): MemberDto!
+    updateMember(id: ID!, memberID: String!, name: String!, address: String!, phoneNumber: String!): MemberDto!
+    deleteMember(id: ID!): MemberDto
+}
