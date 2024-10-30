@@ -7,8 +7,6 @@ public class JsonRpcRequest {
     private JsonNode params;
     private String id;
 
-
-
     public String getJsonrpc() {
         return jsonrpc;
     }
