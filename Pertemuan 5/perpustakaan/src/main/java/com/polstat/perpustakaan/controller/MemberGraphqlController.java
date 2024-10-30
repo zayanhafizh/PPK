@@ -53,4 +53,3 @@ public class MemberGraphqlController {
         memberService.deleteMember(memberDto);
     }
 }
-

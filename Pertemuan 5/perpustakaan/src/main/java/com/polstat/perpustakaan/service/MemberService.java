@@ -11,4 +11,3 @@ public interface MemberService {
     List<MemberDto> getMembers();
     MemberDto getMember(Long id);
 }
-
