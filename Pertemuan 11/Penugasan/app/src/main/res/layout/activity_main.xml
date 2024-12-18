@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Form Pengiriman Data"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextSurname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Surname"
+        android:layout_below="@id/editTextName"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Age"
+        android:layout_below="@id/editTextSurname"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save and Report"
+        android:layout_below="@id/editTextAge"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
